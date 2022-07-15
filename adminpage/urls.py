@@ -7,6 +7,7 @@ urlpatterns = [
     path('home',views.adminhome),
     path('addproducts',views.addproducts),
     path('add',views.add),
+    path('logout',views.logoutadmin),
 
     
     # path('',views.login_signup),

@@ -21,7 +21,7 @@ def adminlogin(request):
                 return redirect('/admin/home')
             else:
                 messages.error(request,"Username and Password Don't Match, Please Try Again !")
-                return redirect('/admin/login')
+                return redirect('/admin')
         else:
             messages.error(request,"Username and Password Don't Match, Please Try Again !")
 
@@ -44,6 +44,6 @@ def add(request):
     data.save()
     return redirect('/admin/item')
 
-def logout_fn(request):
+def logoutadmin(request):
     logout(request)
     return redirect("/")
