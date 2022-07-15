@@ -6,6 +6,7 @@ urlpatterns = [
     path('',views.adminlogin),
     path('home',views.adminhome),
     path('addproducts',views.addproducts),
+    path('add',views.add),
 
     
     # path('',views.login_signup),

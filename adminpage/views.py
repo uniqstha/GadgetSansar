@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
-from django.contrib import messages 
+from django.contrib import messages
+from products.forms import ProductsForm
+
 from products.views import Product
 
 # Create your views here.
@@ -35,3 +37,13 @@ def adminhome(request):
 
 def addproducts(request):
     return render(request, "admin/addproduct.html")
+
+def add(request):
+    data = ProductsForm(request.POST, request.FILES)
+    print(request.POST)
+    data.save()
+    return redirect('/admin/item')
+
+def logout_fn(request):
+    logout(request)
+    return redirect("/")
