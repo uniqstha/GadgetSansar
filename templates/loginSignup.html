@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn/SignUp</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/loginsignup.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    
+</head>
+<body>
+    
+<div class="container md-5" id="container">
+    <div class="form-container sign-up-container mt-2">
+      <form method="POST" action="">
+        {% csrf_token %}
+        <h1 class="font-weight-bold">Create Account</h1>
+        
+        <div class="social-container">
+          <a href="#" class="social"><img class="social-login" src="{% static '/images/facebook.png' %}"></i></a>
+          <a href="#" class="social"><img class="social-login" src="{% static '/images/google.png' %}"></i></a>
+          <a href="#" class="social"><img class="social-login" src="{% static '/images/twitter.png' %}"></i></a>
+        </div>
+        <p>Fill in your details below.</p>
+        <input type="text" name="fn" placeholder="First Name" />
+        <input type="text" name="ln" placeholder="last Name" />
+        <input type="text" name="un" placeholder="Username" />
+        <!-- <input type="tel" placeholder="Contact number" /> -->
+        <input type="email" name="em" placeholder="Email" />
+        <input type="password" name="ps" placeholder="Password" />
+        <button class="btn btn-info btn-rounded" name= "submit" value="sign_in" >Sign up</button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in-container ">
+      <form method="POST" action="">
+        {% csrf_token %}
+        <h1 id="btn">Sign In</h1>
+        <div class="social-container">
+          <a href="#" class="social"><img class="social-login" src="{% static '/images/facebook.png' %}"></i></a>
+          <a href="#" class="social"><img class="social-login" src="{% static '/images/google.png' %}"></i></a>
+          <a href="#" class="social"><img class="social-login" src="{% static '/images/twitter.png' %}"></i></a>
+        </div>
+        <p>or use your registered account</p>
+        <input type="text" name= "em"placeholder="Email" />
+        <input type="password" name= "ps" placeholder="Password" />
+        <button class="btn btn-info btn-rounded " name= "submit" value="login">Sign In</button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1 class="font-weight-bold">Good to see you!<h1>
+          <p>You already have an account? <br>Sign in!</p>
+          <button class="but" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1 class="font-weight-bold">Hello, Friend!</h1>
+          <p>You don't have account yet? Don't worry! You still can join us. <br> Happy Shopping :)</p>
+          <button class="but" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static '/javascript/login.js' %}"></script>
+</body>
+</html>

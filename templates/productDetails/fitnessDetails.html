@@ -1,0 +1,101 @@
+{% extends "index.html" %}
+{% block title %} Product Details {% endblock %}
+{% block content %}
+{% load static %}
+<form action="/update/{{products.id}}" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+<div class="container mb-5 mt-4 ">
+    <div class="row d-flex justify-content-center flex-row">
+        <div class="col-md-5  product-image">
+            <img class="img-fluid " id="image"  src="/{{products.image}}" alt="" />
+        </div>
+        <div class="col-md-2 product-small d-flex flex-md-column justify-content-start order-md-first">
+            <img class="img-fluid smallimg" src="/{{products.image}}" alt="" />
+            <img class="img-fluid smallimg" src="/{{products.img1}}" alt="" />
+            <img class="img-fluid smallimg" src="/{{products.img2}}" alt="" />
+        </div> 
+    
+        <div class="col-md-5  ">
+            <h6 class="text-uppercase text-secondary">{{products.productBrand}}</h6>
+            <h2 class="fs-3">{{products.name}}</h2>
+            <h5 class="text-secondary fs-6 fw-bold">${{products.price}}</h5>
+            <div class="text-secondary text-small">7 stocks left</div>
+            <div class="my-2">
+           
+          
+            </div>
+            <!-- <div class="text-secondary text-small">size :</div>
+            <div class="my-2" id="radiobtn">
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-primary btn-toggle active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> 64 Gb
+                </label>
+                <label class="btn btn-outline-primary btn-toggle">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> 128 GB
+                </label>
+                <label class="btn btn-outline-primary btn-toggle">
+                  <input type="radio" name="options" id="option3" autocomplete="off"> 256 GB
+                </label>
+              </div>
+            </div> -->
+           
+            <button class="btn btn-dark w-100 my-5" onclick="showToast()"><i class="bi bi-cart-plus-fill"></i>
+                Add to Cart </button>
+            <div>
+              <span class="text-secondary text-small">Details :</span>
+<!-- -----------------accordion---------------------------- -->
+              <div id="accordion">
+
+                <div class="card">
+                  <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                      Description
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                      {{products.description}}
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="card">
+                  <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                      Technical Specifications
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                      {{products.techSpec}}
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="card">
+                  <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                      What's Included
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                      {{products.whatsIncluded}}
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+<!-- -----------------accordion end------------------------- -->  
+            
+            </div>
+        </div>
+    </div>
+
+</div>
+</form>
+{% endblock content %}

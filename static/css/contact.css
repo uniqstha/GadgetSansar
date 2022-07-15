@@ -1,0 +1,12 @@
+.contact .card:hover i{
+	color: black;
+}
+.contact .card i{
+	color: #ff5e14;
+}
+.contact .card h4{
+    color: black;
+}
+.contact .card:hover h4{
+    color: #ff5e14;
+}

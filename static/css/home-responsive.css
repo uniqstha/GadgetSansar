@@ -1,0 +1,61 @@
+/* ipad pro media */
+@media (max-width: 1200px){
+
+}
+
+@media (max-width: 1030px){
+/* header section */
+.header .navbar-nav a.nav-link{
+    padding: 0.8rem 1 rem;
+}
+.mb-30{
+    margin-bottom:30px;
+  }
+  .footer-text p,
+  .footer-social-icon{
+    margin-bottom:30px;
+  }
+
+}
+/* ipad media */
+@media (max-width: 992px){
+    /* ipad menu */
+    .menu-toggle{
+        position: relative;
+    }
+    .menu-toggle span{
+        width: 2rem;
+        height: 0.2rem;
+        display: block;
+        background: var(--primary-color);
+        margin: 0.35rem;
+        -webkit-transition:font-weight 0.3s ease-in-out;
+        -moz-transition:font-weight 0.3s ease-in-out;
+        -ms-transition:font-weight 0.3s ease-in-out;
+        -o-transition:font-weight 0.3s ease-in-out;
+        transition:font-weight 0.3s ease-in-out;
+        
+    }
+    .menu-toggle.active span:nth-child(1){
+        transform: rotate(45deg);
+        position: relative;
+        top: 0.2rem;
+    }
+    .menu-toggle.active span:nth-child(2){
+        display: none;
+    }
+    .menu-toggle.active span:nth-child(3){
+        transform: rotate(-45deg);
+        position: relative;
+        top:-0.3rem
+    }
+    #navbarSupportedContent ul{
+        text-align: center;
+    } 
+
+
+}
+/* modile media */
+@media (max-width: 576px){
+
+}
