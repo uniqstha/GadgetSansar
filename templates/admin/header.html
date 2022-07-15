@@ -28,17 +28,9 @@
               <a class="nav-link {% if nbar == 'phone' %}active{% endif %}" href="/products/phone">Add Items</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link {% if nbar == 'audio' %}active{% endif %}" href="/products/audio">Audio</a>
+              <a class="nav-link {% if nbar == 'audio' %}active{% endif %}" href="/products/audio">Orders</a>
             </li> 
-            <li class="nav-item">
-              <a class="nav-link {% if nbar == 'power' %}active{% endif %}" href="/products/power">Power</a>
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link {% if nbar == 'fitness' %}active{% endif %}" href="/products/fitness">Fitness</a>
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link" href="/#contactus">Contact</a>
-            </li> 
+            
             <li class="search_bar ipad-d-none toggle-overlay">
               <span class="d-none d-lg-block">
                 <input class="search-box" type="text" placeholder="Gadgetsansar.com" >
@@ -51,29 +43,12 @@
                 <i id="search" class="fa fa-search" aria-hidden="true"></i>
               </span>
             </li>
-            <li class="cart ipad-d-none ">
-              <span class="d-none d-lg-block">
-                <a href="{% url 'cart_detail'  %}"><i class="fa fa-shopping-cart"><i> <span class="badge badge-secondary" style="background-color: #ff5e14;">{{request.session.cart|length}}</span></i></i></a>
-              </span>
-              <span class="d-lg-none">
-                <a href="login.html">Cart</a>
-              </span>
-            </li>
+            
             <li class="user ipad-d-none ">
                 <span class="d-none d-lg-block">
                   {% if request.user.is_authenticated %}
-                  <div class="dropdown">
-                    <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                      {{user.username}}                    </a>
+                  <button>logoout</button>
                   
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="/user/profile">Profile</a>
-                      <a class="dropdown-item" href="#">Change <br>Password</a>
-                      <a class="dropdown-item" href="/user/logout">Log out</a>
-                    </div>
-                  </div>
-                  {% else %}
-                  <a  href="user/loginsignup"><i class="fa fa-user"></i></a>
                   {% endif %}
                 </span>
                 <span class="d-lg-none">

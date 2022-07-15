@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib import messages 
+from products.views import Product
 
 # Create your views here.
 def adminlogin(request):
@@ -25,5 +26,12 @@ def adminlogin(request):
     else:
         return render(request, 'admin/adminlogin.html')
     
-    def adminhome(request):
-        return render(request, "admin/adminhome.html")
+def adminhome(request):
+    products = Product.objects.all()
+    audio = Product.objects.all()
+    power = Product.objects.all()
+    fitness = Product.objects.all()
+    return render(request, 'admin/adminhome.html' ,{'products': products,'audio': audio,'power': power,'fitness': fitness, 'nbar':'home'})
+
+def addproduct(request):
+    return render(request, "admin/addproduct.html")

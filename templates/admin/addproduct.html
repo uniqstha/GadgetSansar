@@ -3,6 +3,11 @@
 {% block content %}
 {% load static %}
 
+{% extends "admin/admin-index.html" %}
+{% block title %} Admin Home{% endblock %}
+{% block content %}
+{% load static %}
+
 <section id="pcard" class="col-mt-5">
     <div class="col-lg-6 m-auto head">
         <h1 >Phones</h1>
@@ -154,4 +159,5 @@
       </div>
 </div>
 </section>
+{% endblock content %}
 {% endblock content %}
