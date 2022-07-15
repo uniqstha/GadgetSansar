@@ -5,7 +5,7 @@ from adminpage import views
 urlpatterns = [
     path('',views.adminlogin),
     path('home',views.adminhome),
-    path('addproduct',views.addproduct),
+    path('addproducts',views.addproducts),
 
     
     # path('',views.login_signup),

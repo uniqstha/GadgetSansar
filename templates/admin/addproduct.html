@@ -1,163 +1,112 @@
 {% extends "admin/admin-index.html" %}
-{% block title %} Admin Home{% endblock %}
+{% block title %} Add Product{% endblock %}
 {% block content %}
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/addproduct.css' %}" type="text/css" />
+    {% endblock %}
 
-{% extends "admin/admin-index.html" %}
-{% block title %} Admin Home{% endblock %}
-{% block content %}
-{% load static %}
 
-<section id="pcard" class="col-mt-5">
-    <div class="col-lg-6 m-auto head">
-        <h1 >Phones</h1>
+
+<div class="container addForm mt-5 mb-5 ">
+
+    <div class="row ">
+        <div class="col-12">
+            {% if product.id is None%}
+
+            <h4><b>Add Product</b></h4>
+
+            {% else %}
+
+            <p><b>Edit Product</b></p>
+
+
+            {% endif %}
+        
+        <form
+            action="/product/admin/addproduct" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="brand name" class="form-label">Brand Name</label>
+                        <input type="text" class="form-control" placeholder="" value="{{product.product_name}}" required name="product_name"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Product Name" class="form-label"
+                            >Product Name</label
+                        >
+                        <input type="text" class="form-control" placeholder="" value="{{product.product_price}}" requiredname="product_price"/>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="Product Price" class="form-label"
+                            >Product Price</label
+                        >
+                        <input type="text" class="form-control" placeholder="" value="{{product.product_price}}" requiredname="product_price"/>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="product-price" class="form-label"
+                            >Category</label
+                        >
+                        <select name="product_category" class="form-control" >
+                            <option   selected disabled>Choose One</option>
+                            <option value="phone">Phone</option>
+                            <option  value="audio">Audio</option>
+                            <option  value="power">Power</option>
+                            <option  value="fitness">Fitness</option>
+
+                          </select>
+                    </div>
+                    <div class="mb-3">
+                        <label
+                            for="exampleFormControlTextarea3"
+                            class="form-label"
+                            >Product Description</label
+                        >
+                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" name="product_description">{{product.product_details}}</textarea>
+                    </div>
+  
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea3" class="form-label">Technical Specifications</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" name="Technical-Specifications">{{product.product_description}}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label
+                            for="exampleFormControlTextarea3"
+                            class="form-label"
+                            >What's Included</label
+                        >
+                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="4" name="product_description">{{product.product_details}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Main Image</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Second Image</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile2">
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Third Image</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile2">
+                      </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+            <button id="btn">
+                <p id="btnText">Submit</p></button>
+            </div>
+            </div>
+        </div>
     </div>
-    <div class="container ">
-      <div class="row">
-        {% for product in products %}
-          <div class="col-xl-3 col-lg-4 col-md-6 position-relative ">
-            
-
-              <div class="card product-item">
-                <i class="fa fa-heart position-absolute liked"></i>
-                <i class="fa fa-heart-o position-absolute like"></i>
-                <div class="images">
-                <a href="products/phone/productdetails/{{product.id}}"><img src="/{{product.image}}" class="img-fluid w-300 img-card" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details"></a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-muted  fw-light">{{product.productBrand}}</h6>
-                  <h5 class="card-title">{{product.name}}</h5>
-                  <p class="card-text price"> ${{product.price}} <span class="float-end rating-stars" >
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                  </span> </p>
-                  <div class="text-center">
-                    <a href="{% url 'cart_add' product.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
-                </div>
-                </div>
-              </div>
-          </div>
-        {%endfor%}
-      </div>
-</div>
-</section>
-
-<!-- -----------Audio section-------------- -->
-<section id="pcard" class="col-mb-5">
-    <div class="col-lg-6 m-auto head ">
-        <h1 >Audio</h1>
-    </div>
-    <div class="container ">
-      <div class="row">
-        {% for audio in audio %}
-          <div class="col-xl-3 col-lg-4 col-md-6 position-relative ">
-            
-
-              <div class="card product-item">
-                <i class="fa fa-heart position-absolute liked"></i>
-                <i class="fa fa-heart-o position-absolute like"></i>
-                <div class="images">
-                <a href="products/audio/productdetails/{{audio.id}}"><img src="/{{audio.image}}" class="img-fluid w-300 img-card" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details"></a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-muted  fw-light">{{audio.productBrand}}</h6>
-                  <h5 class="card-title">{{audio.name}}</h5>
-                  <p class="card-text price"> ${{audio.price}} <span class="float-end rating-stars" >
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                  </span> </p>
-                  <form action="/" method="POST"></form>
-                  <div class="text-center">
-                    <a href="{% url 'cart_add' audio.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
-                  </div>
-                </form>
-                </div>
-              </div>
-          </div>
-        {%endfor%}
-      </div>
-    </div>
-</section>
 
 
-
- <!-- -----------power section-------------- -->
-<section id="pcard" class="col-mb-5">
-    <div class="col-lg-6 m-auto head ">
-        <h1 >Power</h1>
-    </div>
-    <div class="container ">
-      <div class="row">
-        {% for power in power %}
-          <div class="col-xl-3 col-lg-4 col-md-6 position-relative ">
-            
-
-              <div class="card product-item">
-                <i class="fa fa-heart position-absolute liked"></i>
-                <i class="fa fa-heart-o position-absolute like"></i>
-                <div class="images">
-                <a href="products/power/productdetails/{{power.id}}"><img src="/{{power.image}}" class="img-fluid w-300 img-card" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details"></a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-muted  fw-light">{{power.productBrand}}</h6>
-                  <h5 class="card-title">{{power.name}}</h5>
-                  <p class="card-text price"> ${{power.price}} <span class="float-end rating-stars" >
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                  </span> </p>
-                  <div class="text-center">
-                    <a href="{% url 'cart_add' power.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
-                  </div>
-                </div>
-              </div>
-          </div>
-        {%endfor%}
-      </div>
-</div>
-</section>
-
-
-   <!-- -----------power section-------------- -->
-<section id="pcard" class="col-mb-5">
-    <div class="col-lg-6 m-auto head ">
-        <h1 >Fitness</h1>
-    </div>
-    <div class="container ">
-      <div class="row">
-        {% for fitness in fitness %}
-          <div class="col-xl-3 col-lg-4 col-md-6 position-relative ">
-            
-
-              <div class="card product-item">
-                <i class="fa fa-heart position-absolute liked"></i>
-                <i class="fa fa-heart-o position-absolute like"></i>
-                <div class="images">
-                <a href="products/fitness/productdetails/{{fitness.id}}"><img src="/{{fitness.image}}" class="img-fluid w-300 img-card" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details"></a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-muted  fw-light">{{fitness.productBrand}}</h6>
-                  <h5 class="card-title">{{fitness.name}}</h5>
-                  <p class="card-text price"> ${{fitness.price}} <span class="float-end rating-stars" >
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                  </span> </p>
-                  <div class="text-center">
-                    <a href="{% url 'cart_add' fitness.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
-                  </div>
-                </div>
-              </div>
-          </div>
-        {%endfor%}
-      </div>
-</div>
-</section>
 {% endblock content %}
-{% endblock content %}
+

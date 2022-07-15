@@ -33,5 +33,5 @@ def adminhome(request):
     fitness = Product.objects.all()
     return render(request, 'admin/adminhome.html' ,{'products': products,'audio': audio,'power': power,'fitness': fitness, 'nbar':'home'})
 
-def addproduct(request):
+def addproducts(request):
     return render(request, "admin/addproduct.html")
