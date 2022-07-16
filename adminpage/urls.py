@@ -4,10 +4,15 @@ from adminpage import views
 
 urlpatterns = [
     path('',views.adminlogin),
-    path('home',views.adminhome),
+    path('home',views.adminhome, name="home"),
+ 
+    path('logout',views.logoutadmin),
     path('addproducts',views.addproducts),
     path('add',views.add),
-    path('logout',views.logoutadmin),
+    path('delete/<int:id>',views.delete),
+    
+    path('edit/<int:id>/', views.edit ,name="edit"),
+    path('updatepage/<int:id>', views.updatepage)
 
     
     # path('',views.login_signup),

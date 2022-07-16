@@ -67,8 +67,12 @@
     <a href="{% url 'cart_clear' %}">Clear Cart</a>
     <div class="row justify-content-center">
         <div class="col-lg-12">
+            
             <div class="card">
+                <form action="/products/checkout" method="POST">
+                {% csrf_token %}
                 <div class="row ">
+                    
                     <div class="cc-selector col-lg-2 ">
                         <input checked="checked" id="visa" type="radio" name="credit-card" value="visa" />
                         <label class="drinkcard-cc visa" for="visa"></label>
@@ -78,22 +82,22 @@
                     <div class="col-lg-5" id="fields">
                         <div class="row px-2">
                             <div class="form-group col-md-6">
-                                <label class="form-control-label " >Name on Card</label>
-                                <input type="text" id="cname" name="cname" placeholder="Johnny Doe">
+                                <label class="form-control-label " >Phone number</label>
+                                <input type="text" id="phno" name="phonenumber" placeholder="Johnny Doe">
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-control-label">Card Number</label>
-                                <input type="text" id="cnum" name="cnum" placeholder="1111 2222 3333 4444">
+                                <label class="form-control-label">Email</label>
+                                <input type="text" id="email" name="email" placeholder="1111 2222 3333 4444">
                             </div>
                         </div>
                         <div class="row px-2">
                             <div class="form-group col-md-6">
-                                <label class="form-control-label">Expiration Date</label>
-                                <input type="text" id="exp" name="exp" placeholder="MM/YYYY">
+                                <label class="form-control-label">Shipping Address</label>
+                                <input type="text" id="shipadd" name="address" placeholder="MM/YYYY">
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-control-label">CVV</label>
-                                <input type="text" id="cvv" name="cvv" placeholder="***">
+                                <label class="form-control-label">Postal Code</label>
+                                <input type="text" id="postalcode" name="pincode" placeholder="***">
                             </div>
                         </div>
                     </div>
@@ -111,14 +115,15 @@
                             <p class="mb-1 text-left">Total (tax included)</p>
                             <h6 class="mb-1 text-right">${{totalwithtax}}</h6>
                         </div>
-                        <button class="btn-block btn-blue">
+                        <button type="submit" class="btn-block btn-blue">
                             <span>
-                                <span id="checkout">Checkout</span>
+                                 <span id="checkout">Checkout</span>
                                 <span id="check-amt">${{totalwithtax}}</span>
                             </span>
                         </button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>

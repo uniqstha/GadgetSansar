@@ -1,8 +1,10 @@
-import json
+from http.client import HTTPResponse
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from cart.cart import Cart
 from django.contrib.auth.decorators import login_required
+from orders.models import Order
 
 from products.models import Product
 
@@ -90,3 +92,37 @@ def cart_clear(request):
 def cart_detail(request):
     return render(request, 'cart.html')
 
+def checkout(request):
+    if request.method=="POST":
+        phonenumber=request.POST.get('phonenumber')
+        email=request.POST.get('email')
+        address=request.POST.get('address')
+        pincode=request.POST.get('pincode')
+        cart=request.session.get('cart')
+        uid=request.session.get('_auth_user_id')
+        user=User.objects.get(pk=uid)
+        print(phonenumber,email,address,pincode,cart,user)
+        for i in cart:
+            a=(float(cart[i]['price']))
+            b=cart[i]['quantity']
+            total=a*b
+
+            order=Order(
+                user=user,
+                productBrand=cart[i]['brand'],
+                name=cart[i]['name'],
+                price=cart[i]['price'],
+                quantity=cart[i]['quantity'],
+                image=cart[i]['image'],
+                phonenumber=phonenumber,
+                email=email,
+                address=address,
+                pincode=pincode,
+                total=total,
+            )
+            order.save()
+        request.session['cart']={}
+        return redirect("/")
+        
+        
+    

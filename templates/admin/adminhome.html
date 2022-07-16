@@ -29,7 +29,9 @@
                       <i class="fa fa-star"></i>
                   </span> </p>
                   <div class="text-center">
-                    <a href="{% url 'cart_add' product.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
+                    <a href="edit/{{product.id}}" class="btn btn-dark w-70" role="button" > Edit  </a>
+                    <a href="delete/{{product.id}}" class="btn btn-dark w-40" role="button" > Delete</a>
+                    
                 </div>
                 </div>
               </div>
@@ -67,7 +69,8 @@
                   </span> </p>
                   <form action="/" method="POST"></form>
                   <div class="text-center">
-                    <a href="{% url 'cart_add' audio.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
+                    <a href="edit/{{audio.id}}" class="btn btn-dark w-70" role="button" > Edit  </a>
+                    <a href="delete/{{audio.id}}" class="btn btn-dark w-40" role="button" > Delete</a>
                   </div>
                 </form>
                 </div>
@@ -107,7 +110,8 @@
                       <i class="fa fa-star"></i>
                   </span> </p>
                   <div class="text-center">
-                    <a href="{% url 'cart_add' power.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
+                    <a href="edit/{{power.id}}" class="btn btn-dark w-70" role="button" > Edit  </a>
+                    <a href="delete/{{power.id}}" class="btn btn-dark w-40" role="button" > Delete</a>
                   </div>
                 </div>
               </div>
@@ -145,7 +149,8 @@
                       <i class="fa fa-star"></i>
                   </span> </p>
                   <div class="text-center">
-                    <a href="{% url 'cart_add' fitness.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
+                    <a href="edit/{{fitness.id}}" class="btn btn-dark w-70" role="button" > Edit  </a>
+                    <a href="delete/{{fitness.id}}" class="btn btn-dark w-40" role="button" > Delete</a>
                   </div>
                 </div>
               </div>
