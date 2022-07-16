@@ -2,8 +2,9 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from orders.models import Order
 from products.forms import ProductsForm
-
+from django.contrib.auth.decorators import login_required
 from products.views import Product
 
 # Create your views here.
@@ -27,7 +28,7 @@ def adminlogin(request):
 
     else:
         return render(request, 'admin/adminlogin.html')
-    
+@login_required(login_url="/admin") 
 def adminhome(request):
     products = Product.objects.filter(productCategory='phone').values().order_by('-id')[0:4]
     audio = Product.objects.filter(productCategory='audio').values().order_by('-id')
@@ -38,6 +39,8 @@ def adminhome(request):
 def logoutadmin(request):
     logout(request)
     return redirect("/")
+
+@login_required(login_url="/admin") 
 def addproducts(request):
     return render(request, "admin/addproduct.html")
 
@@ -62,5 +65,11 @@ def updatepage(request,id):
 def delete(request,id):
     data=Product.objects.get(id=id)
     data.delete()
-  
     return redirect("home")
+
+@login_required(login_url="/admin") 
+def order(request):
+    order=Order.objects.all()
+    return render(request, "admin/userorder.html",{'order':order})
+    
+  
