@@ -1,6 +1,29 @@
  {% load static %}
  <!-- Header Section -->
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+  button{
+    width: 100px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background: #2f2f2f;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
 
+</style>
  <section class="header  ">
     <div class="container-fluid  ">
       <nav class="navbar navbar-expand-lg ">
@@ -21,7 +44,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item " >
-              <a class="nav-link {% if nbar == 'home' %}active{% endif %}" href="/">Items <span class="sr-only">(current)</span></a>
+              <a class="nav-link {% if nbar == 'home' %}active{% endif %}" href="/admin/home">Items <span class="sr-only">(current)</span></a>
            
             </li>
             <li class="nav-item ">

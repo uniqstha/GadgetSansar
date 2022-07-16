@@ -107,7 +107,7 @@ def checkout(request):
             a=(float(cart[i]['price']))
             b=cart[i]['quantity']
             total=a*b
-
+            
             order=Order(
                 user=user,
                 productBrand=cart[i]['brand'],
@@ -127,4 +127,9 @@ def checkout(request):
         return redirect("/")
         
         
-    
+def order(request):
+    uid=request.session.get('_auth_user_id')
+    user=User.objects.get(pk=uid)
+    order=Order.objects.filter(user=user)
+
+    return render(request, "order.html",{'order':order})
