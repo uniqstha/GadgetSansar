@@ -17,6 +17,7 @@ class Order(models.Model):
     phonenumber=models.CharField(max_length=100)
     pincode=models.CharField(max_length=255)
     email=models.CharField(max_length=255)
+    payment=models.CharField(max_length=255,default="")
     total=models.CharField(max_length=10000, default="")
     date=models.DateField(default=datetime.today)
 

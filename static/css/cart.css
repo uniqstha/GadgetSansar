@@ -203,8 +203,8 @@ button:focus {
     z-index:999;
 }
 
-.visa{background-image:url(../../static/images/esewa.png);}
-.mastercard{background-image:url(../../static/images/khalti.png);}
+.esewa{background-image:url(../../static/images/esewa.png);}
+.khalti{background-image:url(../../static/images/khalti.png);}
 
 .cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
 .cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{

@@ -98,10 +98,11 @@ def checkout(request):
         email=request.POST.get('email')
         address=request.POST.get('address')
         pincode=request.POST.get('pincode')
+        payment=request.POST.get('payment')
         cart=request.session.get('cart')
         uid=request.session.get('_auth_user_id')
         user=User.objects.get(pk=uid)
-        print(phonenumber,email,address,pincode,cart,user)
+        
         for i in cart:
             a=(float(cart[i]['price']))
             b=cart[i]['quantity']
@@ -118,6 +119,7 @@ def checkout(request):
                 email=email,
                 address=address,
                 pincode=pincode,
+                payment=payment,
                 total=total,
             )
             order.save()
