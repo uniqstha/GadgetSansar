@@ -1,6 +1,41 @@
 {% extends "index.html" %}
-{% block title %} Title{% endblock %}
+{% block title %} Search Results {% endblock %}
 {% block content %}
 {% load static %}
 
+<section id="pcard" class="col-mt-5">
+    <div class="col-lg-6 m-auto head">
+        <h1 >Phones</h1>
+    </div>
+    <div class="container ">
+      <div class="row">
+        {% for product in products %}
+          <div class="col-xl-3 col-lg-4 col-md-6 position-relative ">
+            
+
+              <div class="card product-item">
+                <i class="fa fa-heart position-absolute liked"></i>
+                <i class="fa fa-heart-o position-absolute like"></i>
+                <div class="images">
+                <a href="products/phone/productdetails/{{product.id}}"><img src="/{{product.image}}" class="img-fluid w-300 img-card" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details"></a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted  fw-light">{{product.productBrand}}</h6>
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p class="card-text price"> ${{product.price}} <span class="float-end rating-stars" >
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                  </span> </p>
+                  <div class="text-center">
+                    <a href="{% url 'cart_add' product.id %}" class="btn btn-dark w-100" role="button" > Add To Cart</a>
+                </div>
+                </div>
+              </div>
+          </div>
+        {%endfor%}
+      </div>
+</div>
+</section>
 {% endblock %}
