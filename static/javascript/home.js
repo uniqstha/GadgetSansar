@@ -163,12 +163,17 @@ var MainImg=document.getElementById('image');
 var small_img=document.getElementsByClassName("smallimg");
 small_img[0].onclick=function(){
     MainImg.src=small_img[0].src;
+    console.log('1');
 }
 small_img[1].onclick=function(){
     MainImg.src=small_img[1].src;
+    console.log('2');
 }
 small_img[2].onclick=function(){
-    MainImg.src=small_img[2].src;}
+    MainImg.src=small_img[2].src;
+    console.log('3');
+  
+}
 
 // scroll up
 // When the user scrolls down 20px from the top of the document, show the button

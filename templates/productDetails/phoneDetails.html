@@ -25,7 +25,7 @@
            
           
             </div>
-            <div class="text-secondary text-small">size :</div>
+            <!-- <div class="text-secondary text-small">size :</div>
             <div class="my-2" id="radiobtn">
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-primary btn-toggle ">
@@ -38,10 +38,10 @@
                   <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off"> 256 GB
                 </label>
               </div>
-            </div>
+            </div> -->
            
-            <button class="btn btn-dark w-100 my-5" onclick="showToast()"><i class="bi bi-cart-plus-fill"></i>
-                Add to Cart </button>
+            <a href="{% url 'cart_add' product.id %}"><button class="btn btn-dark w-100 my-5" onclick="showToast()"><i class="bi bi-cart-plus-fill"></i>
+                Add to Cart </button></a>
             <div>
               <span class="text-secondary text-small">Details :</span>
          <!-- -----------------accordion---------------------------- -->

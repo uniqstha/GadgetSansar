@@ -40,8 +40,8 @@
               </div>
             </div> -->
            
-            <button class="btn btn-dark w-100 my-5" onclick="showToast()"><i class="bi bi-cart-plus-fill"></i>
-                Add to Cart </button>
+            <a href="{% url 'cart_add' product.id %}"><button class="btn btn-dark w-100 my-5" onclick="showToast()"><i class="bi bi-cart-plus-fill"></i>
+              Add to Cart </button></a>
             <div>
               <span class="text-secondary text-small">Details :</span>
 <!-- -----------------accordion---------------------------- -->

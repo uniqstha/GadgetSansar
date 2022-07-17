@@ -1,4 +1,5 @@
 from http.client import HTTPResponse
+from multiprocessing import context
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
@@ -133,3 +134,8 @@ def order(request):
     order=Order.objects.filter(user=user)
 
     return render(request, "order.html",{'order':order})
+
+def search(request):
+    query=request.GET['query']
+    products = Product.objects.filter(productBrand__icontains=query)
+    return render(request, 'searchresults.html' ,{'products': products})

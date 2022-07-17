@@ -60,7 +60,7 @@ def updatepage(request,id):
     data=Product.objects.get(id=id)
     form=ProductsForm(request.POST,request.FILES,instance=data)
     form.save()
-    return redirect("admin/home")
+    return redirect("/admin/home")
 
 def delete(request,id):
     data=Product.objects.get(id=id)

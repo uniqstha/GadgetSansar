@@ -23,6 +23,7 @@ urlpatterns = [
     path("checkout",views.checkout),
     # order
     path("order",views.order),
+    path("search",views.search),
     
  
 ]

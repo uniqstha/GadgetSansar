@@ -10,7 +10,6 @@ class Order(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     productBrand = models.CharField(max_length=255,default="")
     name = models.CharField(max_length=255, default="")
-    
     price = models.FloatField()
     quantity = models.CharField(max_length=10)
     address = models.TextField()
