@@ -67,6 +67,11 @@ def delete(request,id):
     data.delete()
     return redirect("home")
 
+def delete_order(request,id):
+    data=Order.objects.get(id=id)
+    data.delete()
+    return redirect("/admin/order")
+
 @login_required(login_url="/admin") 
 def order(request):
     order=Order.objects.all()

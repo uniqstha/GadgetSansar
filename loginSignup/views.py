@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 # from django.contrib.auth import get_user_model
 # Create your views here.
-@login_required(login_url="/user/loginsignup")
+
 def login_signup(request):
     
     
@@ -41,7 +41,7 @@ def login_signup(request):
 def logout_fn(request):
     logout(request)
     return redirect("/")
-
+@login_required(login_url="/user/loginsignup")
 def profile(request):
     # products = Products.objects.filter(productCategory='phone').values()
     # audio = Products.objects.filter(productCategory='audio').values()
