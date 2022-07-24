@@ -60,6 +60,7 @@ def edit(request,id):
 def updatepage(request,id):
     data=Product.objects.get(id=id)
     form=ProductsForm(request.POST,request.FILES,instance=data)
+    print(request.POST)
     form.save()
     return redirect("/admin/home")
 
