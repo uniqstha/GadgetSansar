@@ -33,8 +33,9 @@ def login_signup(request):
                 return redirect("/")
             else:
                 messages.error(request,'invalid')
+                return redirect("/user/loginsignup")
 
-            # 
+            
     else:
         return render(request, 'loginSignup.html')
 

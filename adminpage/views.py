@@ -25,6 +25,7 @@ def adminlogin(request):
                 return redirect('/admin')
         else:
             messages.error(request,"Username and Password Don't Match, Please Try Again !")
+            return redirect('/admin')
 
     else:
         return render(request, 'admin/adminlogin.html')
