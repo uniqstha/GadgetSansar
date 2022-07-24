@@ -9,9 +9,6 @@ from django.contrib.auth.decorators import login_required
 # from django.contrib.auth import get_user_model
 # Create your views here.
 @login_required(login_url="/user/loginsignup")
-def index(request):
-    users = User.objects.all()
-    return render(request, "index.html", {'Users': users})
 def login_signup(request):
     
     
