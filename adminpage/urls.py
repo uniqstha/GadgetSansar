@@ -3,8 +3,8 @@ from django.urls import path,include
 from adminpage import views
 
 urlpatterns = [
-    path('',views.adminlogin),
-    path('home',views.adminhome, name="home"),
+    path('',views.adminlogin, name="adminlogin"),
+    path('home',views.adminhome, name="adminhome"),
     path('order',views.order, name="order"),
  
     path('logout',views.logoutadmin),

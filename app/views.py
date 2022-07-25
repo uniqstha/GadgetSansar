@@ -4,7 +4,7 @@ from django.shortcuts import render
 from products.models import Product
 
 # Create your views here.
-def home(request):
+def homepage(request):
     products = Product.objects.filter(productCategory='phone').values().order_by('-id')[0:4]
     audio = Product.objects.filter(productCategory='audio').values().order_by('-id')
     power = Product.objects.filter(productCategory='power').values().order_by('-id')

@@ -2,7 +2,7 @@ from django.urls import path,include
 from products import views
 urlpatterns = [
 
-    path("phone",views.phone),
+    path("phone",views.phone, name="phone"),
     path("audio",views.audio),
     path("power",views.power),
     path("fitness",views.fitness),
@@ -22,7 +22,7 @@ urlpatterns = [
     # checkout
     path("checkout",views.checkout),
     # order
-    path("order",views.order),
+    path("order",views.order, name= "order"),
     path("search",views.search),
     
  

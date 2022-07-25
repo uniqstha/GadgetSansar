@@ -1,9 +1,11 @@
 from urllib import response
 from django.test import Client, SimpleTestCase, TestCase
-from adminpage.views import add, updatepage
+from adminpage.views import add
 from django.test import Client 
 # from product.models import Item
-from app.views import home
+from products.views import order as orderPr, order
+from app.views import homepage
+
 from django.contrib.auth.models import User
 from django.urls import reverse, resolve
 
@@ -29,7 +31,7 @@ class TestViews(TestCase):
         # To login 
       client = Client()
       logged_in = client.login(username="test12", password="1234")
-      response = client.get(reverse(home))
+      response = client.get(reverse(homepage))
 
       self.assertEquals(response.status_code, 200)
       self.assertTemplateUsed(response, "homepage.html")  
